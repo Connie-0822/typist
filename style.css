@@ -1,0 +1,170 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a0533;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.screen.active { display: flex; }
+
+.game-title {
+  font-size: 3rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ff6b6b;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 32px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b6b, #ffd700);
+  color: #1a0533;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+button:hover { transform: scale(1.05); }
+
+.high-score { font-size: 1rem; color: #aaa; }
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 64px);
+  gap: 10px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.level-btn {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.stats { font-size: 1.1rem; line-height: 2; text-align: center; }
+.cleared-title { color: #ffd700; font-size: 2.5rem; }
+.failed-title { color: #ff4444; font-size: 2.5rem; }
+
+#game-canvas { width: 100vw; height: 100vh; display: block; }
+
+#btn-menu-ingame {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  z-index: 10;
+}
+
+#btn-menu-ingame:hover { opacity: 1; transform: scale(1.05); }
+
+.level-locked {
+  opacity: 0.45;
+  background: linear-gradient(135deg, #666, #999);
+}
+
+/* ── Time Setting Dialog ── */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 100;
+}
+
+.dialog-overlay.hidden { display: none; }
+
+.dialog-box {
+  background: linear-gradient(160deg, #1e0a3c, #0a1a3a);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 16px;
+  padding: 32px 40px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+}
+
+.dialog-box h3 {
+  font-size: 1.4rem;
+  color: #ffd700;
+  text-align: center;
+}
+
+.dialog-hint {
+  font-size: 0.88rem;
+  color: #aaa;
+  text-align: center;
+}
+
+.dialog-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.dialog-row input[type="number"] {
+  width: 100px;
+  padding: 8px 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,215,0,0.5);
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+}
+
+.dialog-row input[type="number"]:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255,215,0,0.4);
+}
+
+.dialog-unit { font-size: 1.1rem; color: #ccc; }
+
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffd700, #ff6b6b);
+  padding: 10px 28px;
+  font-size: 1rem;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.12);
+  color: #ccc;
+  padding: 10px 28px;
+  font-size: 1rem;
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,0.2); }

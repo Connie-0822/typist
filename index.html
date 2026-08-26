@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>打字练习游戏</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Menu Screen -->
+  <div id="screen-menu" class="screen active">
+    <h1 class="game-title">⌨️ 打字闯关</h1>
+    <div id="high-score-display" class="high-score"></div>
+    <button id="btn-start">开始游戏</button>
+  </div>
+
+  <!-- Level Select Screen -->
+  <div id="screen-level-select" class="screen">
+    <h2>选择起始关卡</h2>
+    <div id="level-grid" class="level-grid"></div>
+    <button id="btn-back-menu">← 返回</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="screen-game" class="screen">
+    <canvas id="game-canvas"></canvas>
+    <button id="btn-menu-ingame">← 主菜单</button>
+  </div>
+
+  <!-- Time Setting Dialog (shown over game screen via Ctrl+,) -->
+  <div id="dialog-set-time" class="dialog-overlay hidden">
+    <div class="dialog-box">
+      <h3>⏱ 设置关卡时间</h3>
+      <p class="dialog-hint">当前剩余时间将更新为新时长</p>
+      <div class="dialog-row">
+        <input type="number" id="input-duration" min="10" max="600" step="10" value="60" />
+        <span class="dialog-unit">秒</span>
+      </div>
+      <div class="dialog-actions">
+        <button id="btn-time-confirm" class="btn-primary">确认</button>
+        <button id="btn-time-cancel" class="btn-secondary">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cleared Screen -->
+  <div id="screen-cleared" class="screen">
+    <h2 class="cleared-title">🎉 通关！</h2>
+    <div id="cleared-stats" class="stats"></div>
+    <button id="btn-next-level">下一关 →</button>
+  </div>
+
+  <!-- Failed Screen -->
+  <div id="screen-failed" class="screen">
+    <h2 class="failed-title">💀 关卡失败</h2>
+    <div id="failed-stats" class="stats"></div>
+    <button id="btn-retry">从头再来</button>
+    <button id="btn-back-menu-2">返回主菜单</button>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
